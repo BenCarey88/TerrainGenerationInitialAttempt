@@ -6,13 +6,18 @@
 struct Vertex
 {
     Vertex()=default;
-    Vertex(std::shared_ptr<struct Edge> &_edge);
+    Vertex(float _x, float _y, float _z);
     Vertex(const Vertex &)=default;
 
-    float x;
-    float y;
-    float z;
+    float x = 0.0f;
+    float y = 0.0f;
+    float z = 0.0f;
     std::shared_ptr<struct Edge> edge;
+
+    bool operator ==(const Vertex &_rhs);
+
+    void setEdge(const Edge _edge);
+    Edge getEdge() const;
 };
 
 #endif
